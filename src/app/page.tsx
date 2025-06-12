@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
@@ -12,13 +12,6 @@ import {
   FaLaptopCode, FaGlobeAmericas, FaLightbulb, FaMagic
 } from 'react-icons/fa';
 
-const features = [
-  { icon: <FaRocket className="text-xl text-indigo-400" />, title: "Performance", text: "Built for speed with dynamic loading and code splitting." },
-  { icon: <FaMobileAlt className="text-xl text-indigo-400" />, title: "Responsive", text: "Mobile-first layout with adaptive interactions." },
-  { icon: <FaPaintBrush className="text-xl text-indigo-400" />, title: "Design System", text: "Atomic UI components built from scratch for scalability." },
-  { icon: <FaStar className="text-xl text-indigo-400" />, title: "SEO & Analytics", text: "Integrated with structured data, tracking & A/B testing." },
-  { icon: <FaShieldAlt className="text-xl text-indigo-400" />, title: "Security", text: "XSS and CSRF protection baked in. Hosted on secure CDN." },
-];
 
 const services = [
   { icon: <FaCode className="text-2xl" />, title: "Custom Web Development", description: "Tailored solutions built with modern stacks" },
@@ -88,29 +81,6 @@ const AnimatedText = ({ text, delay = 0 }) => {
   );
 };
 
-const FeatureCard = ({ icon, title, text, index }) => {
-  const shouldReduceMotion = useReducedMotion();
-  
-  return (
-    <motion.div
-      className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] p-6 rounded-2xl border border-white/10 shadow-2xl"
-      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
-      whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
-      whileHover={shouldReduceMotion ? {} : { y: -10, transition: { duration: 0.2 } }}
-      viewport={{ once: true }}
-      style={{ willChange: 'transform' }}
-    >
-      <div className="flex items-start space-x-4">
-        <div className="p-3 bg-indigo-900/30 rounded-xl">{icon}</div>
-        <div>
-          <h3 className="text-xl font-bold mb-2">{title}</h3>
-          <p className="text-gray-300 text-sm">{text}</p>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
 
 const ServiceCard = ({ icon, title, description }) => {
   const shouldReduceMotion = useReducedMotion();
@@ -547,7 +517,7 @@ export default function Home() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold">Trusted by Industry Leaders</h2>
           <p className="text-gray-400 max-w-2xl mx-auto mt-4">
-            Don't just take our word for it - hear what our clients have to say.
+          Don&#39;t just take our word for it - hear what our clients have to say.
           </p>
         </motion.div>
         
