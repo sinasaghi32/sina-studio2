@@ -29,7 +29,7 @@ const testimonials = [
   { name: "Sarah Williams", role: "Product Lead, FinTech Inc", content: "Their attention to detail and technical excellence is remarkable." },
 ];
 
-const StarBackground = (props) => {
+const StarBackground = (props: any) => {
   const ref = useRef();
   const [sphere] = useState(() => random.inSphere(new Float32Array(2000 * 3), { radius: 1.5 }));
 
