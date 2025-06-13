@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
-import * as random from 'maath/random/dist/maath-random.esm';
+import * as random from 'maath/random';
 import { Button } from "@/components/ui/button";
 import { 
   FaRocket, FaMobileAlt, FaPaintBrush, FaStar, FaShieldAlt, 
