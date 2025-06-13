@@ -11,7 +11,7 @@ import {
   FaCode, FaServer, FaCloud, FaChartLine, FaPalette, FaLayerGroup,
   FaLaptopCode, FaGlobeAmericas, FaLightbulb, FaMagic
 } from 'react-icons/fa';
-
+import { Group } from 'three'; // Add this import
 const services = [
   { icon: <FaCode className="text-2xl" />, title: "Custom Web Development", description: "Tailored solutions built with modern stacks" },
   { icon: <FaServer className="text-2xl" />, title: "Backend Architecture", description: "Scalable server infrastructure" },
@@ -29,7 +29,7 @@ const testimonials = [
 ];
 
 const StarBackground = (props: any) => {
-  const ref = useRef<THREE.Group>(null); // Explicitly type the ref for Three.js Group
+  const ref = useRef<Group>(null); // Explicitly type the ref for Three.js Group
   const [sphere] = useState(() => random.inSphere(new Float32Array(2000 * 3), { radius: 1.5 }));
 
   useFrame((state, delta) => {
@@ -52,12 +52,12 @@ const StarBackground = (props: any) => {
       </Points>
     </group>
   );
-};
+}; // Ensure this closing bracket is present
 
 const AnimatedText = ({ text, delay = 0 }) => {
   const shouldReduceMotion = useReducedMotion();
   const letters = Array.from(text);
-  
+
   return (
     <motion.div className="flex flex-wrap justify-center">
       {letters.map((letter, i) => (
@@ -65,11 +65,11 @@ const AnimatedText = ({ text, delay = 0 }) => {
           key={i}
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.5, 
+          transition={{
+            duration: 0.5,
             delay: delay + i * 0.03,
             type: "spring",
-            stiffness: 120
+            stiffness: 120,
           }}
           className="inline-block"
         >
@@ -79,7 +79,6 @@ const AnimatedText = ({ text, delay = 0 }) => {
     </motion.div>
   );
 };
-
 
 const ServiceCard = ({ icon, title, description }) => {
   const shouldReduceMotion = useReducedMotion();
