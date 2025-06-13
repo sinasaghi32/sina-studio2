@@ -12,7 +12,6 @@ import {
   FaLaptopCode, FaGlobeAmericas, FaLightbulb, FaMagic
 } from 'react-icons/fa';
 
-
 const services = [
   { icon: <FaCode className="text-2xl" />, title: "Custom Web Development", description: "Tailored solutions built with modern stacks" },
   { icon: <FaServer className="text-2xl" />, title: "Backend Architecture", description: "Scalable server infrastructure" },
