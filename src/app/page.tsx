@@ -29,7 +29,7 @@ const testimonials = [
 ];
 
 const StarBackground = (props: any) => {
-  const ref = useRef();
+  const ref = useRef<THREE.Group>(null); // Explicitly type the ref for Three.js Group
   const [sphere] = useState(() => random.inSphere(new Float32Array(2000 * 3), { radius: 1.5 }));
 
   useFrame((state, delta) => {
