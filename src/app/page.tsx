@@ -54,7 +54,12 @@ const StarBackground = (props: any) => {
   );
 }; // Ensure this closing bracket is present
 
-const AnimatedText = ({ text, delay = 0 }) => {
+type AnimatedTextProps = {
+  text: string;
+  delay?: number;
+};
+
+const AnimatedText = ({ text, delay = 0 }: AnimatedTextProps) => {
   const shouldReduceMotion = useReducedMotion();
   const letters = Array.from(text);
 
@@ -73,12 +78,13 @@ const AnimatedText = ({ text, delay = 0 }) => {
           }}
           className="inline-block"
         >
-          {letter === ' ' ? '\u00A0' : letter}
+          {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}
     </motion.div>
   );
 };
+
 
 const ServiceCard = ({ icon, title, description }) => {
   const shouldReduceMotion = useReducedMotion();
